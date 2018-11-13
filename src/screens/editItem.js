@@ -126,61 +126,69 @@ class EditItemModal extends Component {
                   <Form.Input
                     name="asset_id"
                     label="Asset ID"
-                    placeholder={this.props.item.asset_id}
+                    placeholder="Enter Asset ID..."
                     onChange={this.handleChange}
                     value={this.state.asset_id}
+                    defaultValue={this.props.item.asset_id}
                   />
                   <Form.Input
                     name="location"
                     label="Current Location"
-                    placeholder={this.props.item.location}
+                    placeholder="Enter Current Location..."
                     onChange={this.handleChange}
                     value={this.state.location}
+                    defaultValue={this.props.item.location}
                   />
                   <Form.Input
                     name="org_tag"
                     label="Organizational Tag"
-                    placeholder={this.props.item.org_tag}
+                    placeholder="Enter Organizational Tag..."
                     onChange={this.handleChange}
                     value={this.state.org_tag}
+                    defaultValue={this.props.item.org_tag}
                   />
                 </Form.Group>
                 <Form.Group unstackable widths={2}>
                   <Form.Input
                     name="manufacturer"
                     label="Manufacturer"
-                    placeholder={this.props.item.manufacturer}
+                    placeholder="Enter Manufacturer..."
                     onChange={this.handleChange}
                     value={this.state.manufacturer}
+                    defaultValue={this.props.item.manufacturer}
                   />
                   <Form.Input
                     name="part_num"
                     label="Manufacturer Part Number"
-                    placeholder={this.props.item.part_num}
+                    placeholder="Enter Manufacturer Part Number..."
                     onChange={this.handleChange}
                     value={this.state.part_num}
+                    defaultValue={this.props.item.part_num}
                   />
                   <Form.Input
                     name="date_implemented"
                     label="Date Implemented"
-                    placeholder={this.props.item.date_implemented}
+                    placeholder="Enter Date Implemented..."
                     onChange={this.handleChange}
                     value={this.state.date_implemented}
+                    defaultValue={this.props.item.date_implemented}
                   />
                 </Form.Group>
                 <Form.TextArea
                   name="description"
                   label="Description"
-                  placeholder={this.props.item.description}
+                  placeholder="Enter Description..."
                   onChange={this.handleChange}
                   value={this.state.description}
+                  defaultValue={this.props.item.description}
                 />
                 <Form.TextArea
                   name="maintenance_notes"
                   label="Maintenance Notes"
-                  placeholder={this.props.item.maintenance_notes}
+                  placeholder="Enter Maintenance Notes..."
                   onChange={this.handleChange}
                   value={this.state.maintenance_notes}
+                  defaultValue={this.props.item.maintenance_notes}
                 />
                 <Form.Button type="submit">Submit</Form.Button>
               </Form>
