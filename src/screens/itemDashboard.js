@@ -35,10 +35,10 @@ class ItemDashboard extends Component {
     });
   };
 
-  handleDropdownChange = (event, { value }) => {
+  handleDropdownChange = (event, propertyName, value) => {
     console.log(value);
     this.setState({
-      editedItem: { ...this.state.editedItem, [name]: value }
+      editedItem: { ...this.state.editedItem, [propertyName]: value }
     });
   };
 
