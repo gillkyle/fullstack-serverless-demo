@@ -48,15 +48,23 @@ class CreateItemModal extends Component {
 
   handleOpen = () =>
     this.setState({
-      modalOpen: true,
-      itemName: "",
-      itemPrice: "",
-      item_description: ""
+      modalOpen: true
     });
 
   handleClose = () => this.setState({ modalOpen: false });
 
   render() {
+    const options = [
+      { key: "Acer", text: "Acer", value: "Acer" },
+      { key: "Apple", text: "Apple", value: "Apple" },
+      { key: "Asus", text: "Asus", value: "Asus" },
+      { key: "Cisco", text: "Cisco", value: "Cisco" },
+      { key: "D-Link", text: "D-Link", value: "D-Link" },
+      { key: "Dell", text: "Dell", value: "Dell" },
+      { key: "HP", text: "HP", value: "HP" },
+      { key: "Lenovo", text: "Lenovo", value: "Lenovo" },
+      { key: "Toshiba", text: "Toshiba", value: "Toshiba" }
+    ];
     return (
       <Modal
         trigger={<Button onClick={this.handleOpen}>+ Add Item</Button>}
@@ -94,10 +102,11 @@ class CreateItemModal extends Component {
               />
             </Form.Group>
             <Form.Group unstackable widths={2}>
-              <Form.Input
+              <Form.Select
                 name="manufacturer"
                 label="Manufacturer"
                 placeholder="Enter manufacturer..."
+                options={options}
                 onChange={this.handleChange}
                 value={this.state.manufacturer}
               />
