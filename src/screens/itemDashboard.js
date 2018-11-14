@@ -25,18 +25,12 @@ class ItemDashboard extends Component {
   }
 
   handleChange = (event, name, value) => {
-    console.log("handle change");
-    console.log(name);
-    console.log(event.target);
-    console.log(event.target.selected);
-    console.log(event.target.value);
     this.setState({
       editedItem: { ...this.state.editedItem, [name]: event.target.value }
     });
   };
 
   handleDropdownChange = (event, propertyName, value) => {
-    console.log(value);
     this.setState({
       editedItem: { ...this.state.editedItem, [propertyName]: value }
     });
@@ -97,57 +91,56 @@ class ItemDashboard extends Component {
       <div>
         <CreateItemModal getItems={this.getItems} />
 
-        <Container style={{ padding: 10 }}>
-          <Table basic="very" celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Asset ID</Table.HeaderCell>
-                <Table.HeaderCell>Description</Table.HeaderCell>
-                <Table.HeaderCell>Location</Table.HeaderCell>
-                <Table.HeaderCell>Organization Tag</Table.HeaderCell>
-                <Table.HeaderCell>Manufacturer</Table.HeaderCell>
-                <Table.HeaderCell>Part Number</Table.HeaderCell>
-                <Table.HeaderCell>Date Implemented</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
+        <Table basic celled>
+          <Table.Header>
+            <Table.Row>
+              <Table.HeaderCell>Asset ID</Table.HeaderCell>
+              <Table.HeaderCell>Description</Table.HeaderCell>
+              <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell>Organization Tag</Table.HeaderCell>
+              <Table.HeaderCell>Manufacturer</Table.HeaderCell>
+              <Table.HeaderCell>Part Number</Table.HeaderCell>
+              <Table.HeaderCell>Date Implemented</Table.HeaderCell>
+              <Table.HeaderCell>Edit</Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
 
-            <Table.Body>
-              {_.map(
-                itemData,
-                ({
-                  ID,
-                  asset_id,
-                  description,
-                  location,
-                  org_tag,
-                  manufacturer,
-                  part_num,
-                  date_implemented
-                }) => (
-                  <Table.Row onClick={() => this.getItem(ID)}>
-                    <Table.Cell>{asset_id}</Table.Cell>
-                    <Table.Cell>{description}</Table.Cell>
-                    <Table.Cell>{location}</Table.Cell>
-                    <Table.Cell>{org_tag}</Table.Cell>
-                    <Table.Cell>{manufacturer}</Table.Cell>
-                    <Table.Cell>{part_num}</Table.Cell>
-                    <Table.Cell>{date_implemented}</Table.Cell>
-                    <Table.Cell>
-                      <EditItemModal
-                        loading={this.state.loading}
-                        item={this.state.item}
-                        getItems={this.getItems}
-                        handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit}
-                        handleDropdownChange={this.handleDropdownChange}
-                      />
-                    </Table.Cell>
-                  </Table.Row>
-                )
-              )}
-            </Table.Body>
-            {/* {_.map(itemData, ({ ID, asset_id, description, manufacturer }) => (
+          <Table.Body>
+            {_.map(
+              itemData,
+              ({
+                ID,
+                asset_id,
+                description,
+                location,
+                org_tag,
+                manufacturer,
+                part_num,
+                date_implemented
+              }) => (
+                <Table.Row onClick={() => this.getItem(ID)}>
+                  <Table.Cell>{asset_id}</Table.Cell>
+                  <Table.Cell>{description}</Table.Cell>
+                  <Table.Cell>{location}</Table.Cell>
+                  <Table.Cell>{org_tag}</Table.Cell>
+                  <Table.Cell>{manufacturer}</Table.Cell>
+                  <Table.Cell>{part_num}</Table.Cell>
+                  <Table.Cell>{date_implemented}</Table.Cell>
+                  <Table.Cell>
+                    <EditItemModal
+                      loading={this.state.loading}
+                      item={this.state.item}
+                      getItems={this.getItems}
+                      handleChange={this.handleChange}
+                      handleSubmit={this.handleSubmit}
+                      handleDropdownChange={this.handleDropdownChange}
+                    />
+                  </Table.Cell>
+                </Table.Row>
+              )
+            )}
+          </Table.Body>
+          {/* {_.map(itemData, ({ ID, asset_id, description, manufacturer }) => (
               <Card onClick={() => this.getItem(ID)}>
                 <Card.Content>
                   <Card.Header selectable>{asset_id}</Card.Header>
@@ -161,8 +154,7 @@ class ItemDashboard extends Component {
                 />
               </Card>
             ))} */}
-          </Table>
-        </Container>
+        </Table>
       </div>
     );
   }

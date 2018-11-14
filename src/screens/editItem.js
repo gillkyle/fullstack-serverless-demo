@@ -63,7 +63,7 @@ class EditItemModal extends Component {
     const { loading } = this.props;
     const defaultnum = 1;
     return (
-      <Container style={{ padding: 10 }}>
+      <span style={{ padding: 10 }}>
         <Modal
           trigger={
             <Button icon onClick={this.handleOpen}>
@@ -207,7 +207,7 @@ class EditItemModal extends Component {
             </Button>
           </Modal.Actions>
         </Modal>
-      </Container>
+      </span>
     );
   }
 }
